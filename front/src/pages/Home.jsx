@@ -7,6 +7,8 @@ import { getAllCars } from "../redux/actions/actions";
 const Home = () => {
 
     const {cars} = useSelector(state => state.reducer);
+    const {loading} = useSelector(state => state.loading);
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -26,17 +28,23 @@ const Home = () => {
             </div>
             <div className="content">
                 <div className="content-row">
+                    <h1 className="topCar">Top Mobil</h1>
+                </div>
+                <div className="content-row">
+
+                </div>
+                <div className="content-row">
                     <div className="content-groups">
-                        {cars.map((car,) => {
+                        {cars.map((car) => {
                             return (
                                 <div className="card">
                                     <div className="card-body">
-                                        <img src={car.image ? car.image : "./image/car/avanza.png"} alt="" />
+                                        <img className="img-cars" src={car.image ? car.image : "./image/car/avanza.png"} alt="{car.name}" />
                                     </div>
                                     <div className="card-footer">
                                         <div className="card-footer-top">
-                                            <h3 className="car-title">{car.name}</h3>
-                                            <hp className="car-price">({car.price}.toFixed(2))</hp>
+                                            <p className="car-title">{car.name}</p>
+                                            <p className="car-price">Per Hari: Rp.{(car.priceDay).toFixed(3)}</p>
                                         </div>
                                         <div className="card-footer-bottom">
                                             <button className="car-rent">Rental Sekarang</button>

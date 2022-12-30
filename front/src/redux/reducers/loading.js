@@ -10,5 +10,8 @@ export const loading = (state = initialData, action) => {
                 loading: action.payload
             }
         }
+        default: return state
     }
 };
+
+export default loading; 

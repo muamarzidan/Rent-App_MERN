@@ -3,12 +3,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { reducer } from './reducers/reducer';
 
-const rootReducers = combineReducers({
-    reducer
-});
+import loading from './reducers/loading';
 
 const composeEnhancers = composeWithDevTools({
 
+});
+
+const rootReducers = combineReducers({
+    reducer,
+    loading
 });
 
 const store = createStore(

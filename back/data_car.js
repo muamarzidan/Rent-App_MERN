@@ -26,7 +26,35 @@ const data = {
             carType: "sedan 2",
             bookedTimeSlots: [],
             statusRent: true
-        }
+        },
+        {
+            name: "BMW 3",
+            image: "./image/cars/alpard.png",
+            description: "BMW is a German",
+            priceDay: 100,
+            carType: "sedan 2",
+            bookedTimeSlots: [],
+            statusRent: true
+        },
+        {
+            name: "BMW 4",
+            image: "./image/cars/ertiga.png",
+            description: "BMW is a German",
+            priceDay: 100,
+            carType: "sedan 2",
+            bookedTimeSlots: [],
+            statusRent: true
+        },
+        {
+            name: "BMW 5",
+            image: "./image/cars/jeep.png",
+            description: "BMW is a German",
+            priceDay: 100,
+            carType: "sedan 2",
+            bookedTimeSlots: [],
+            statusRent: true
+        },
+        
     ]
 }
 
