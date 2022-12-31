@@ -2,18 +2,28 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../components/Layout";
+import Loading from "../components/Loading";
 import { getAllCars } from "../redux/actions/actions";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Home = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const {cars} = useSelector(state => state.reducer);
     const {loading} = useSelector(state => state.loading);
-    
-    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getAllCars());
     },[dispatch]);
+
+    useEffect(() => {
+        if (!localStorage.getItem('userInfo')) {
+            navigate('/login');
+        }
+    });
+
 
     return (
 
@@ -34,12 +44,13 @@ const Home = () => {
 
                 </div>
                 <div className="content-row">
-                    <div className="content-groups">
+                    {loading ? (<Loading />) : (
+                        <div className="content-groups">
                         {cars.map((car) => {
                             return (
-                                <div className="card">
+                                <div className="card" key={car._id}>
                                     <div className="card-body">
-                                        <img className="img-cars" src={car.image ? car.image : "./image/car/avanza.png"} alt="{car.name}" />
+                                        <img className="img-cars" src={car.image ? car.image : "./image/car/avanza.png"} alt={car.name} />
                                     </div>
                                     <div className="card-footer">
                                         <div className="card-footer-top">
@@ -52,10 +63,10 @@ const Home = () => {
                                     </div>
                                 </div>
                             )
-                        })}
-                    </div>
+                            })}
+                        </div>
+                    )}
                 </div>
-                {cars.length}
             </div>
         </Layout>
     )

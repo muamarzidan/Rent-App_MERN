@@ -21,10 +21,18 @@ const carsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    bookedTimeSlots: {
-        type: [String],
-        required: true
-    },
+    bookedTimeSlots: [
+        {
+            from: {
+                type: String,
+                required: true
+            },
+            to: {
+                type: String,
+                required: true
+            }
+        }
+    ],
     statusRent: {
         type: Boolean,
         default: true
