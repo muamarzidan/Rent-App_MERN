@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import Loading from "../components/Loading";
 import { getAllCars } from "../redux/actions/actions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Home = () => {
@@ -58,7 +58,7 @@ const Home = () => {
                                             <p className="car-price">Per Hari: Rp.{(car.priceDay).toFixed(3)}</p>
                                         </div>
                                         <div className="card-footer-bottom">
-                                            <button className="car-rent">Rental Sekarang</button>
+                                            <button className="car-rent"><Link to={`/car/${car._id}`} className="car-rent-link">Rental Sekarang</Link></button>
                                         </div>
                                     </div>
                                 </div>

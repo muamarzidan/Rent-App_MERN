@@ -12,4 +12,17 @@ carsRouter.get('/getall', async ( req, res) => {
     }
 })
 
+carsRouter.get('/car/:carId', async ( req, res) => {
+    try {
+        const car = await Cars.findById({_id:req.params.carId});
+        if(car) {
+            res.send(car);
+        } else {
+            res.status(404).send({message: 'Car not found'});
+        }
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 export default carsRouter;

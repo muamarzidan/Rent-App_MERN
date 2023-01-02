@@ -141,6 +141,15 @@
     color: #ffffff;
 }
 
+.car-rent-link{
+    color: #000000;
+    text-decoration: none;
+}
+
+.car-rent:hover .car-rent-link {
+    color: #ffffff;
+}
+
 .loading {
     display: flex;
     justify-content: center;
@@ -196,13 +205,6 @@ input{
     border-bottom: 1px solid #000000;
 }
 
-.rent-now {
-    display: block;
-    margin: 0 auto;
-    width: max-content;
-    padding: 5px 20px;
-}
-
 .form-group2 {
     display: flex;
     flex-direction: column;
@@ -237,3 +239,8 @@ input{
     text-decoration: underline;
 }
 
+.car-title{
+    text-align: center;
+    margin: 100px 0 40px 0;
+    font-size: 40px;
+}
